@@ -37,4 +37,4 @@ jobs:
          TEST_USER=github
          SSH_KEYFILE="secrets/test_ssh_key.cpt"
          uuidgen > testfile
-         rsync -auv -e "ssh -i <(ccat ${SSH_KEYFILE} -k ${secrets.keyword})" testfile ${TEST_USER}@TEST_HOST:
+         rsync -auv -e "ssh -i <(ccat ${SSH_KEYFILE} -k ${{secrets.keyword}})" testfile ${TEST_USER}@TEST_HOST:
