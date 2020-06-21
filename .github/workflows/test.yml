@@ -37,4 +37,4 @@ jobs:
          SSH_KEYFILE="secrets/test_ssh_key.cpt"
          uuidgen > testfile
          set -x
-         rsync -auv -e "ssh -i <$(ccat ${SSH_KEYFILE} -K ${{secrets.keyword}})" testfile ${TEST_USER}@${TEST_HOST}:
+         rsync -auv -e "ssh -i <(ccat ${SSH_KEYFILE} -K ${{secrets.keyword}})" testfile ${TEST_USER}@${TEST_HOST}:
