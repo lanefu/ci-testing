@@ -35,5 +35,6 @@ jobs:
          cd ci-test
          TEST_HOST=ec2-54-211-123-105.compute-1.amazonaws.com
          TEST_USER=github
+         SSH_KEYFILE="secrets/test_ssh_key.cpt"
          uuidgen > testfile
-         rsync -auv -e "ssh -i <(ccat private.key.enc -k ${secrets.keyword})" testfile ${TEST_USER}@TEST_HOST:
+         rsync -auv -e "ssh -i <(ccat ${SSH_KEYFILE} -k ${secrets.keyword})" testfile ${TEST_USER}@TEST_HOST:
