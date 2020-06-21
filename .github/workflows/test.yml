@@ -31,7 +31,8 @@ jobs:
         shell: bash {0}         
         run: |  
          #source ci-testing-tools/jenkins_ci.sh
-         ls -l secrets
+         find .
+         cd ci-test
          TEST_HOST=ec2-54-211-123-105.compute-1.amazonaws.com
          TEST_USER=github
          uuidgen > testfile
