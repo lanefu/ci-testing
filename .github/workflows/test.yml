@@ -36,6 +36,6 @@ jobs:
          TEST_HOST=ec2-54-211-123-105.compute-1.amazonaws.com
          TEST_USER=github
          SSH_KEYFILE="secrets/test_ssh_key.cpt"
-         ssh-add <(ccat $PWD/${SSH_KEYFILE} -K ${{secrets.keyword}}
+         ssh-add <(ccat $PWD/${SSH_KEYFILE} -K ${{secrets.keyword}})
          uuidgen > testfile
          rsync -auv testfile ${TEST_USER}@${TEST_HOST}:
