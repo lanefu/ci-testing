@@ -40,4 +40,4 @@ jobs:
          #rsync -auv -e "ssh -i <(ccat $PWD/${SSH_KEYFILE} -K ${{secrets.keyword}})" testfile ${TEST_USER}@${TEST_HOST}:
          cat <(ccat $PWD/${SSH_KEYFILE} -K ${{secrets.keyword}})
          echo " ----"
-         ssh -o StrictHostKeyChecking=no -i <(ccat $PWD/${SSH_KEYFILE} -K ${{secrets.keyword}}) ${TEST_USER}@${TEST_HOST} ls -a
+         ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i <(ccat $PWD/${SSH_KEYFILE} -K ${{secrets.keyword}}) ${TEST_USER}@${TEST_HOST} ls
