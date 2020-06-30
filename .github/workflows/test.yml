@@ -39,3 +39,14 @@ jobs:
          ssh-add <(ccat $PWD/${SSH_KEYFILE} -K ${{secrets.keyword}})
          uuidgen > testfile
          rsync -auv testfile ${TEST_USER}@${TEST_HOST}:
+  pass_anyway:
+    name: passees even on a failure
+    # This job runs on self hosted Linux machine, with public label
+    runs-on: [self-hosted]
+    steps:
+      - name: Do some tests
+        shell: bash {0}         
+        run: |
+         /bin/false
+      - name: pass anyway
+        if: ${{ always() }} 
